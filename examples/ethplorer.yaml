@@ -1,0 +1,1150 @@
+openapi: 3.0.0
+paths:
+  /getBlockTxInfo:
+    get:
+      operationId: ApiController_getBlockTxInfo
+      parameters:
+        - name: blockNumber
+          required: true
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+  /getBlockInfo:
+    get:
+      operationId: ApiController_getBlockInfo
+      parameters:
+        - name: number
+          required: true
+          in: query
+          schema:
+            type: number
+        - name: hash
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+  /getBlocksInfo:
+    get:
+      operationId: ApiController_getBlocksInfo
+      parameters:
+        - name: after
+          required: true
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: ''
+  /getLastBlock:
+    get:
+      operationId: ApiController_getLastBlock
+      parameters: []
+      responses:
+        '200':
+          description: getLastBlock success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetLastBlockResponse'
+  /getTokenInfo/{address}:
+    get:
+      operationId: ApiController_getTokenInfo
+      parameters:
+        - name: address
+          required: true
+          in: path
+          description: Token address
+          example: '0x0000000000000000000000000000000000000000'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: getTokenInfo success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetTokenInfoResponse'
+        '400':
+          description: Address is not token contract
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorAddressIsNotTokenContract'
+        4XX:
+          description: getLastBlock bad request error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetByAddressRequest'
+  /getTop:
+    get:
+      operationId: ApiController_getTop
+      parameters:
+        - name: apiKey
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: debugId
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: criteria
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: getTop success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetTopResponse'
+  /getTopTokens:
+    get:
+      operationId: ApiController_getTopTokens
+      parameters:
+        - name: apiKey
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: debugId
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: maxPeriod
+          required: true
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: getTopTokens success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetTopTokensResponse'
+  /getTxInfo/{txHash}:
+    get:
+      operationId: ApiController_getTxInfo
+      parameters:
+        - name: txHash
+          required: true
+          in: path
+          description: Transaction address
+          example: '0x8cfcb4cb0d4156cf8f358784a1751f78cc322beafe3f128b43a346ff671ffa0e'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: getTxInfo success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetTxInfoResponse'
+        4XX:
+          description: getTxInfo bad request error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetTxInfoRequest'
+  /getTokenHistory/{address}:
+    get:
+      operationId: ApiController_getTokenHistory
+      parameters:
+        - name: apiKey
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: debugId
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: type
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: timestamp
+          required: true
+          in: query
+          schema:
+            type: number
+        - name: address
+          required: true
+          in: path
+          description: Token address
+          example: '0x0000000000000000000000000000000000000000'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: getTokenHistory success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetTokenHistoryResponse'
+        '406':
+          description: Invalid timestamp
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetTimestampRequest'
+        4XX:
+          description: bad request error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetByAddressRequest'
+  /getAddressHistory/{address}:
+    get:
+      operationId: ApiController_getAddresssHistory
+      parameters:
+        - name: apiKey
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: debugId
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: token
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: type
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: timestamp
+          required: true
+          in: query
+          schema:
+            type: number
+        - name: address
+          required: true
+          in: path
+          description: Token address
+          example: '0x0000000000000000000000000000000000000000'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: getTokenHistory success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetAddressHistoryOperation'
+        '406':
+          description: Invalid timestamp
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetTimestampRequest'
+        4XX:
+          description: bad request error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetByAddressRequest'
+  /getAddressTransactions/{address}:
+    get:
+      operationId: ApiController_getAddressTransactions
+      parameters:
+        - name: address
+          required: true
+          in: path
+          description: Token address
+          example: '0x0000000000000000000000000000000000000000'
+          schema:
+            type: string
+        - name: apiKey
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: debugId
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: timestamp
+          required: true
+          in: query
+          schema:
+            type: number
+        - name: showZeroValues
+          required: true
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: getAddressTransactions success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiAddressTransactionInfo'
+  /getAddressInfo/{address}:
+    get:
+      operationId: ApiController_getAddressInfo
+      parameters:
+        - name: address
+          required: true
+          in: path
+          description: Token address
+          example: '0x0000000000000000000000000000000000000000'
+          schema:
+            type: string
+        - name: apiKey
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: debugId
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: token
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: getAddressInfo success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetAddressInfoResponse'
+        4XX:
+          description: getAddressInfo bad request error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetByAddressRequest'
+  /getTopTokenHolders/{address}:
+    get:
+      operationId: ApiController_getTopTokenHolders
+      parameters:
+        - name: address
+          required: true
+          in: path
+          description: Token address
+          example: '0x0000000000000000000000000000000000000000'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: getTopTokenHolders success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGetTopTokenHoldersResponse'
+        '400':
+          description: Address is not token contract
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorAddressIsNotTokenContract'
+        4XX:
+          description: getTopTokenHolders bad request error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorGetByAddressRequest'
+  /getTokensNew:
+    get:
+      operationId: ApiController_getTokensNew
+      parameters:
+        - name: limit
+          required: false
+          in: query
+          schema:
+            type: number
+      responses:
+        '200':
+          description: getTokensNew success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TokenNewInfo'
+info:
+  title: ethplorer
+  description: ''
+  version: 1.0.0
+  contact: {}
+tags: []
+servers: []
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas:
+    ApiGetLastBlockResponse:
+      type: object
+      properties:
+        lastBlock:
+          type: number
+          description: Last block number
+      required:
+        - lastBlock
+    TokenPriceInfo:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: current price in currency
+        bid:
+          type: number
+          description: bid price
+        diff:
+          type: number
+          description: 24 hours rate difference (in percent)
+        diff7d:
+          type: number
+          description: 7 days rate difference (in percent)
+        ts:
+          type: number
+          description: last rate update timestamp
+        marketCapUsd:
+          type: number
+          description: market cap (USD)
+        availableSupply:
+          type: number
+          description: available supply
+        volume24h:
+          type: number
+          description: 24 hours volume
+        volDiff1:
+          type: number
+          description: 1 hours volume difference (in percent)
+        volDiff7:
+          type: number
+          description: 7 hours volume difference (in percent)
+        volDiff30:
+          type: number
+          description: 30 hours volume difference (in percent)
+        diff30d:
+          type: number
+          description: 30 days rate difference (in percent)
+        currency:
+          type: string
+          description: token price currency (USD)
+      required:
+        - rate
+        - bid
+        - diff
+        - diff7d
+        - ts
+        - marketCapUsd
+        - availableSupply
+        - volume24h
+        - volDiff1
+        - volDiff7
+        - volDiff30
+        - diff30d
+        - currency
+    ApiGetTokenInfoResponse:
+      type: object
+      properties:
+        address:
+          type: string
+          description: token address
+        decimals:
+          type: string
+          description: number of significant digits
+        lastUpdated:
+          type: number
+          description: last updated timestamp
+        name:
+          type: string
+          description: token name
+        owner:
+          type: string
+          description: token owner address
+        price:
+          description: token price (false, if not available)
+          allOf:
+            - $ref: '#/components/schemas/TokenPriceInfo'
+        symbol:
+          type: string
+          description: token symbol
+        totalSupply:
+          type: string
+          description: total token supply
+        transfersCount:
+          type: number
+          description: total number of token operations
+        txsCount:
+          type: number
+          description: total number of transactions with token address
+        issuancesCount:
+          type: number
+          description: total count of token issuances
+        holdersCount:
+          type: number
+          description: total numnber of token holders
+        website:
+          type: string
+          description: '[optional] token website url'
+        image:
+          type: string
+          description: '[optional token image url'
+        ethTransfersCount:
+          type: number
+          description: '[optional] total number of ethereum operations'
+        countOps:
+          type: number
+          description: total count of token operations
+        publicTags:
+          description: '[optional] one or more tags from https://ethplorer.io/tag/'
+          type: array
+          items:
+            type: string
+        totalIn:
+          type: number
+          description: total amount of incoming tokens
+        totalOut:
+          type: number
+          description: total amount of outgoing tokens
+        description:
+          type: string
+          description: '[optional] token description'
+      required:
+        - address
+        - decimals
+        - lastUpdated
+        - name
+        - owner
+        - price
+        - symbol
+        - totalSupply
+        - transfersCount
+        - txsCount
+        - issuancesCount
+        - holdersCount
+        - website
+        - image
+        - ethTransfersCount
+        - countOps
+        - publicTags
+        - totalIn
+        - totalOut
+        - description
+    ErrorAddressIsNotTokenContract:
+      type: object
+      properties:
+        code:
+          type: number
+          description: Error code
+          examples:
+            - 150
+        message:
+          type: string
+          description: Error message
+          examples:
+            - Address is not a token contract
+      required:
+        - code
+        - message
+    ApiErrorAddressIsNotTokenContract:
+      type: object
+      properties:
+        error:
+          description: Error object
+          allOf:
+            - $ref: '#/components/schemas/ErrorAddressIsNotTokenContract'
+      required:
+        - error
+    ErrorGetByAddressRequest:
+      type: object
+      properties:
+        code:
+          type: number
+          description: Error code
+          examples:
+            - 111
+            - 104
+        message:
+          type: string
+          description: Error message
+          examples:
+            - Address is required
+            - Invalid address format
+      required:
+        - code
+        - message
+    ApiErrorGetByAddressRequest:
+      type: object
+      properties:
+        error:
+          description: Error object
+          allOf:
+            - $ref: '#/components/schemas/ErrorGetByAddressRequest'
+      required:
+        - error
+    ApiGetTopToken:
+      type: object
+      properties:
+        address:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+        website:
+          type: string
+        image:
+          type: string
+        coingecko:
+          type: string
+        twitter:
+          type: string
+        telegram:
+          type: string
+        volume:
+          type: number
+        cap:
+          type: number
+        availableSupply:
+          type: number
+        txsCount24:
+          type: string
+        txsCount-1d-current:
+          type: number
+        txsCount-1d-previous:
+          type: number
+        txsCount-7d-current:
+          type: number
+        txsCount-7d-previous:
+          type: number
+        txsCount-30d-current:
+          type: number
+        txsCount-30d-previous:
+          type: number
+        volume-1d-current:
+          type: number
+        volume-1d-previous:
+          type: number
+        volume-7d-current:
+          type: number
+        volume-7d-previous:
+          type: number
+        volume-30d-current:
+          type: number
+        volume-30d-previous:
+          type: number
+        cap-1d-current:
+          type: number
+        cap-1d-previous:
+          type: number
+        cap-1d-previous-ts:
+          type: number
+        cap-7d-current:
+          type: number
+        cap-7d-previous:
+          type: number
+        cap-7d-previous-ts:
+          type: number
+        cap-30d-current:
+          type: number
+        cap-30d-previous:
+          type: number
+        cap-30d-previous-ts:
+          type: number
+        facebook:
+          type: string
+        cmc:
+          type: string
+        reddit:
+          type: string
+        description:
+          type: string
+        decimals:
+          type: object
+        links:
+          type: string
+        price:
+          type: object
+      required:
+        - address
+        - name
+        - symbol
+        - website
+        - image
+        - coingecko
+        - twitter
+        - telegram
+        - volume
+        - cap
+        - availableSupply
+        - txsCount24
+        - txsCount-1d-current
+        - txsCount-1d-previous
+        - txsCount-7d-current
+        - txsCount-7d-previous
+        - txsCount-30d-current
+        - txsCount-30d-previous
+        - volume-1d-current
+        - volume-1d-previous
+        - volume-7d-current
+        - volume-7d-previous
+        - volume-30d-current
+        - volume-30d-previous
+        - cap-1d-current
+        - cap-1d-previous
+        - cap-1d-previous-ts
+        - cap-7d-current
+        - cap-7d-previous
+        - cap-7d-previous-ts
+        - cap-30d-current
+        - cap-30d-previous
+        - cap-30d-previous-ts
+        - facebook
+        - cmc
+        - reddit
+        - description
+        - decimals
+        - links
+        - price
+    TokenTopTotals:
+      type: object
+      properties:
+        tokens:
+          type: number
+        tokensWithPrice:
+          type: number
+        cap:
+          type: number
+        capPrevious:
+          type: number
+        volume24h:
+          type: number
+        volumePrevious:
+          type: number
+        ts:
+          type: number
+      required:
+        - tokens
+        - tokensWithPrice
+        - cap
+        - capPrevious
+        - volume24h
+        - volumePrevious
+        - ts
+    ApiGetTopResponse:
+      type: object
+      properties:
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiGetTopToken'
+        totals:
+          $ref: '#/components/schemas/TokenTopTotals'
+      required:
+        - tokens
+        - totals
+    ApiGetTopTokensResponse:
+      type: object
+      properties:
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiGetTokenInfoResponse'
+      required:
+        - tokens
+    ApiGetTxInfoResponse:
+      type: object
+      properties:
+        hash:
+          type: string
+        timestamp:
+          type: number
+        blockNumber:
+          type: number
+        confirmations:
+          type: number
+        success:
+          type: boolean
+        from:
+          type: string
+        to:
+          type: string
+        value:
+          type: number
+        input:
+          type: string
+        gasLimit:
+          type: number
+        gasUsed:
+          type: number
+        logs:
+          type: array
+          items:
+            type: string
+        operations:
+          type: array
+          items:
+            type: string
+        creates:
+          type: string
+      required:
+        - hash
+        - timestamp
+        - blockNumber
+        - confirmations
+        - success
+        - from
+        - to
+        - value
+        - input
+        - gasLimit
+        - gasUsed
+        - logs
+        - operations
+        - creates
+    ErrorGetTxRequest:
+      type: object
+      properties:
+        code:
+          type: number
+          description: Error code
+          examples:
+            - 102
+            - 404
+            - 101
+        message:
+          type: string
+          description: Error message
+          examples:
+            - Invalid transaction hash format
+            - Transaction not found
+            - Missing transaction hash
+      required:
+        - code
+        - message
+    ApiErrorGetTxInfoRequest:
+      type: object
+      properties:
+        error:
+          description: Error object
+          allOf:
+            - $ref: '#/components/schemas/ErrorGetTxRequest'
+      required:
+        - error
+    ApiGetTokenHistoryResponse:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            type: string
+      required:
+        - operations
+    ErrorGetTimestampRequest:
+      type: object
+      properties:
+        code:
+          type: number
+          description: Error code
+          examples:
+            - 108
+        message:
+          type: string
+          description: Error message
+          examples:
+            - Invalid timestamp
+      required:
+        - code
+        - message
+    ApiErrorGetTimestampRequest:
+      type: object
+      properties:
+        error:
+          description: Error object
+          allOf:
+            - $ref: '#/components/schemas/ErrorGetTimestampRequest'
+      required:
+        - error
+    ApiGetAddressHistoryOperation:
+      type: object
+      properties:
+        timestamp:
+          type: number
+        transactionHash:
+          type: string
+        tokenInfo:
+          type: object
+        type:
+          type: string
+        value:
+          type: object
+        priority:
+          type: number
+        isEth:
+          type: boolean
+        address:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+      required:
+        - timestamp
+        - transactionHash
+        - tokenInfo
+        - type
+        - value
+        - priority
+        - isEth
+        - address
+        - from
+        - to
+    ApiAddressTransactionInfo:
+      type: object
+      properties:
+        timestamp:
+          type: number
+          description: timestamp
+        from:
+          type: string
+          description: from
+        to:
+          type: string
+          description: to
+        hash:
+          type: string
+          description: hash
+        value:
+          type: number
+          description: value
+        usdPrice:
+          type: number
+          description: usdPrice
+        usdValue:
+          type: number
+          description: usdValue
+        success:
+          type: boolean
+          description: success
+      required:
+        - timestamp
+        - from
+        - to
+        - hash
+        - value
+        - usdPrice
+        - usdValue
+        - success
+    ApiEthInfoByAddress:
+      type: object
+      properties:
+        price:
+          $ref: '#/components/schemas/TokenPriceInfo'
+        balance:
+          type: number
+        rawBalance:
+          type: string
+        totalIn:
+          type: number
+        totalOut:
+          type: number
+      required:
+        - price
+        - balance
+        - rawBalance
+        - totalIn
+        - totalOut
+    ApiContractInfo:
+      type: object
+      properties:
+        creatorAddress:
+          type: string
+        transactionHash:
+          type: string
+        timestamp:
+          type: number
+      required:
+        - creatorAddress
+        - transactionHash
+        - timestamp
+    ApiTokenInfoByAddress:
+      type: object
+      properties:
+        tokenInfo:
+          $ref: '#/components/schemas/ApiGetTokenInfoResponse'
+        balance:
+          type: number
+        rawBalance:
+          type: string
+      required:
+        - tokenInfo
+        - balance
+        - rawBalance
+    ApiGetAddressInfoResponse:
+      type: object
+      properties:
+        address:
+          type: string
+        ETH:
+          $ref: '#/components/schemas/ApiEthInfoByAddress'
+        countTxs:
+          type: number
+        contractInfo:
+          $ref: '#/components/schemas/ApiContractInfo'
+        tokenInfo:
+          $ref: '#/components/schemas/ApiGetTokenInfoResponse'
+        tokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiTokenInfoByAddress'
+      required:
+        - address
+        - ETH
+        - contractInfo
+        - tokenInfo
+        - tokens
+    ApiTokenHolder:
+      type: object
+      properties:
+        address:
+          type: string
+        balance:
+          type: number
+        share:
+          type: number
+        rawBalance:
+          type: string
+      required:
+        - address
+        - balance
+        - share
+        - rawBalance
+    ApiGetTopTokenHoldersResponse:
+      type: object
+      properties:
+        holders:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiTokenHolder'
+      required:
+        - holders
+    TokenNewInfo:
+      type: object
+      properties:
+        address:
+          type: string
+          description: token address
+        decimals:
+          type: string
+          description: number of significant digits
+        lastUpdated:
+          type: number
+          description: last updated timestamp
+        name:
+          type: string
+          description: token name
+        owner:
+          type: string
+          description: token owner address
+        price:
+          description: token price (false, if not available)
+          allOf:
+            - $ref: '#/components/schemas/TokenPriceInfo'
+        symbol:
+          type: string
+          description: token symbol
+        totalSupply:
+          type: string
+          description: total token supply
+        transfersCount:
+          type: number
+          description: total number of token operations
+        txsCount:
+          type: number
+          description: total number of transactions with token address
+        issuancesCount:
+          type: number
+          description: total count of token issuances
+        holdersCount:
+          type: number
+          description: total numnber of token holders
+        website:
+          type: string
+          description: '[optional] token website url'
+        image:
+          type: string
+          description: '[optional token image url'
+        ethTransfersCount:
+          type: number
+          description: '[optional] total number of ethereum operations'
+        countOps:
+          type: number
+          description: total count of token operations
+        publicTags:
+          description: '[optional] one or more tags from https://ethplorer.io/tag/'
+          type: array
+          items:
+            type: string
+        totalIn:
+          type: number
+          description: total amount of incoming tokens
+        totalOut:
+          type: number
+          description: total amount of outgoing tokens
+        description:
+          type: string
+          description: '[optional] token description'
+        added:
+          type: number
+      required:
+        - address
+        - decimals
+        - lastUpdated
+        - name
+        - owner
+        - price
+        - symbol
+        - totalSupply
+        - transfersCount
+        - txsCount
+        - issuancesCount
+        - holdersCount
+        - website
+        - image
+        - ethTransfersCount
+        - countOps
+        - publicTags
+        - totalIn
+        - totalOut
+        - description
+        - added

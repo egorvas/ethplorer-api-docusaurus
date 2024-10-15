@@ -1,0 +1,274 @@
+---
+id: api-controller-get-address-transactions
+title: "ApiController_getAddressTransactions"
+description: "ApiController_getAddressTransactions"
+sidebar_label: "ApiController_getAddressTransactions"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1VsGO2jAQ/ZXIp1ZCC+2RG6raattL1dKtVIQqJxmId5PYO3a2oCj/3pk4IQkBQavCBWy/GY/fPD9TCm0ApVM6v4/FXCyMeqdzhzpNAX9twS3iGMHaJcrcyohxVkyEkSgzcIBWzFelyGlAwdJjaR3huVAIlNFhAROhclo20iW0FoONUBlORZNL/QR50EXCTmYm5Wyz3ezKD4XZKIFMinkp3N5wtHWo8q2oqklXnlGfYX+uuucCcH9lphjCYkt8/YdUTmVgHZ35r5PlRRYCDpLZRP/+CagfZFrA2T6czRhqnYLMKeWaQ62hZlMaArwlkulr2LrT6ghsEUU0F7QJaKeIJAW54xTSmFRFteCmj5bzlONCJKLkCpWDzPbmdfgIkWP9IcvWKV9dx+GInWO5ddBqIjaos3F3jkNqFKGdvowlDCETaZPL2BpF6Bdu1uXKPYzwhY2/oIquCDkgfdTDdRsdkBTV9PKERo6jWiTJsae61UDfNZM1kQ1H7eF7h+pV2m1PcnTK1a5ABjUW3X2+IeLrz3FdVxoamVmiYy/q2t/IquZieho/LRu/qrhGwBfvg2seRAUqt//GivbiDEEisdzKvObQT02aHx80ZpIuh/j0Y8n0eKIT50zNpuLD1Sr3DFClJtV4onPMJ5XiB2/uZnez5u5R3ZSBkxltXSbrW9d4BhEUdAwFdOKgOXJwxNFgs4MgHOzc1KSSrIVlhimvef5WZyyCcs1bxyfSEqqJwWUZSgvfMa0qnvY2xc9LrKwMU9bTRqYWRpUc7EW8+tpI73XQMTms8ImegN5b0Nw+IdhGb7BR91Tceqf+Tbv1XqOHpttwzQNUvOO/N+/4X8HJUtrHIh/08dDhJrhasyODjPkSUj1+dUHGYlwvbvQu8UEOrvDx/ZLu4h+1OyIq
+sidebar_class_name: "get api-method"
+info_path: docs/ethplorer/ethplorer
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ApiController_getAddressTransactions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/getAddressTransactions/{address}"}
+>
+  
+</MethodEndpoint>
+
+
+
+ApiController_getAddressTransactions
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"address","required":true,"in":"path","description":"Token address","example":"0x0000000000000000000000000000000000000000","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"apiKey","required":true,"in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"debugId","required":true,"in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"timestamp","required":true,"in":"query","schema":{"type":"number"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"showZeroValues","required":true,"in":"query","schema":{"type":"boolean"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          getAddressTransactions success response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"timestamp"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"timestamp"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"from"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"from"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"to"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"to"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"hash"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"hash"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"value"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"value"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"usdPrice"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"usdPrice"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"usdValue"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"usdValue"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"success"}
+                        required={true}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","description":"success"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"timestamp\": 0,\n    \"from\": \"string\",\n    \"to\": \"string\",\n    \"hash\": \"string\",\n    \"value\": 0,\n    \"usdPrice\": 0,\n    \"usdValue\": 0,\n    \"success\": true\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      

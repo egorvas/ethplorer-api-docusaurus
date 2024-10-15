@@ -1,0 +1,136 @@
+---
+id: api-controller-get-last-block
+title: "ApiController_getLastBlock"
+description: "ApiController_getLastBlock"
+sidebar_label: "ApiController_getLastBlock"
+hide_title: true
+hide_table_of_contents: true
+api: eJx9kkFPwzAMhf9KlfPEBkdugACBOMEQh2pCbmZoRtoEx52Yqv537LYb20D00sZNnt/7nNaEiATsQn23NOfmIrqrUDMF75Fe35EfIPGlD/bDTEwEggoZKZnzfDExhCmGOqEsW3M2m+lricmSiyoocvsCWWqsxZSy7TFRtNILa9aDEKN3tncyXSU93ZpkS6xAv3gTUfRCsULLaoXUN7uht9+Z/NlaN1WBJFsPHamdrOj9jDu6TpN8No5QCOR7YhKRHXscuNzuZXncRuj0Oe7xL0QBWIblwKZnyqUspke7EtJ6xzmhbcjx5klxDIkLBBLvW0ZqcSxNxo+bQBUIWXP/MpfiSKVkjn1iV7+FntYYUFxFH+gPYlJQK8Pi9GR2MhsHB1YHp2IxJK6gH1kN1cgr+2GQSbqsJ7/Nd9BiNzPGL55GD642otqQ138DofzgLuloSmmq9bYtIOEz+a7T8meDtBm4rYEcFBovX4heibBUZnlrPnCjJuU+Rh3CGnyj/X/dwW6xN7Db67mg+wb7oBuO
+sidebar_class_name: "get api-method"
+info_path: docs/petstore/ethplorer
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ApiController_getLastBlock"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/getLastBlock"}
+>
+  
+</MethodEndpoint>
+
+
+
+ApiController_getLastBlock
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          getLastBlock success response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"lastBlock"}
+                        required={true}
+                        schemaName={"number"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"number","description":"Last block number"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"lastBlock\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
+      
